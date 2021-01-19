@@ -1,0 +1,51 @@
+﻿@model IEnumerable<RepositoryPattern.Models.Employee>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p>
+    <a asp-action="AddEmployee">Add Employee</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Employee Name
+            </th>
+            <th>
+                Gender
+            </th>
+            <th>
+                Salary
+            </th>
+            <th>
+                Dept
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EGender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ESalary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EDept)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditEmployee", new { NumE_ID = item.EID  }) |
+                @Html.ActionLink("Delete", "DeleteEmployee", new { NumE_ID = item.EID })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

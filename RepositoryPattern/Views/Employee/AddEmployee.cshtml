@@ -1,0 +1,47 @@
+﻿@model RepositoryPattern.Models.Employee
+
+@{
+    ViewData["Title"] = "AddEmployee";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Add Employee</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddEmployee">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="EName" class="control-label">Employee Name</label>
+                <input asp-for="EName" class="form-control" />
+                <span asp-validation-for="EName" class="text-danger">Please Enter Employee Name</span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EGender" class="control-label">Gender</label>
+                <input asp-for="EGender" class="form-control" />
+                <span asp-validation-for="EGender" class="text-danger">Please Enter Gender</span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ESalary" class="control-label">Salary</label>
+                <input asp-for="ESalary" class="form-control" />
+                <span asp-validation-for="ESalary" class="text-danger">Please Enter Salary</span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EDept" class="control-label">Department</label>
+                <input asp-for="EDept" class="form-control" />
+                <span asp-validation-for="EDept" class="text-danger">Please Enter Department</span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

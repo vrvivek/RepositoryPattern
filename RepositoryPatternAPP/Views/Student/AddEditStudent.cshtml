@@ -1,0 +1,52 @@
+﻿@model RepositoryPatternAPP.Data.Student
+
+@{
+    ViewData["Title"] = "AddEditStudent";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>AddEditStudent</h1>
+
+<h4>Student</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddEditStudent">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="S_FirstName" class="control-label">FirstName</label>
+                <input asp-for="S_FirstName" class="form-control" />
+                <span asp-validation-for="S_FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="S_LastName" class="control-label">LastName</label>
+                <input asp-for="S_LastName" class="form-control" />
+                <span asp-validation-for="S_LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="S_Email" class="control-label">Email</label>
+                <input asp-for="S_Email" class="form-control" />
+                <span asp-validation-for="S_Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="S_EnrollmentNo" class="control-label">EnrollmentNo</label>
+                <input asp-for="S_EnrollmentNo" class="form-control" />
+                <span asp-validation-for="S_EnrollmentNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="ID" class="form-control" type="hidden"/>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
