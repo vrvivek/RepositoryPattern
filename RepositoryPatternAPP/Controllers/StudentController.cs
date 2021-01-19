@@ -83,7 +83,7 @@ namespace RepositoryPatternAPP.Controllers
             return View("~/Views/Student/DeleteStudent.cshtml", model);
         }
         [HttpPost]
-        public IActionResult DeleteStudent(Int32 id, FormCollection form)
+        public IActionResult DeleteStudent(Int32 id, Student form)
         {
             studentRepository.DeleteStudent(id);
             return RedirectToAction("Index");
